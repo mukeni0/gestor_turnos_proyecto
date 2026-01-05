@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Detalle del turno{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">Detalle del turno</span>
+        <a href="{% url 'lista' %}" class="btn btn-sm btn-outline-secondary">Volver</a>
+      </div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div><span class="text-muted">Fecha</span><div class="fw-semibold">{{ turno.fecha }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Hora</span><div class="fw-semibold">{{ turno.hora }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Paciente</span><div class="fw-semibold">{{ turno.paciente }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Médico</span><div class="fw-semibold">{{ turno.medico }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Especialidad</span><div class="fw-semibold">{{ turno.especialidad }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Cobertura</span><div class="fw-semibold">{{ turno.cobertura }}</div></div>
+          </div>
+          <div class="col-md-6">
+            <div><span class="text-muted">Saldo</span><div class="fw-semibold">{{ turno.saldo }}</div></div>
+          </div>
+          {% if turno.observaciones %}
+          <div class="col-12">
+            <div><span class="text-muted">Observaciones</span><div class="fw-semibold">{{ turno.observaciones }}</div></div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <a href="{% url 'lista' %}" class="btn btn-outline-secondary">Volver</a>
+        <form method="post" action="{% url 'eliminar_turno' turno.id %}" onsubmit="return confirm('¿Eliminar este turno? Esta acción no se puede deshacer.');">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Eliminar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
