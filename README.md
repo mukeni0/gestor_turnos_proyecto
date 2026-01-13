@@ -4,6 +4,7 @@ Sistema integral de gestión de turnos médicos desarrollado con Django 5.2 que 
 
 ## 📋 Tabla de Contenidos
 
+- [Novedades](#-novedades)
 - [Características](#-características)
 - [Tecnologías](#️-tecnologías)
 - [Requisitos](#-requisitos)
@@ -17,6 +18,30 @@ Sistema integral de gestión de turnos médicos desarrollado con Django 5.2 que 
 - [Despliegue](#-despliegue)
 - [Contribuir](#-contribuir)
 - [Licencia](#-licencia)
+
+## 🆕 Novedades
+
+### Branch mukeni0 (2026-01-13)
+
+#### Documentación y Herramientas
+- **Documentación completa**: README.md exhaustivo con ejemplos de uso, API, configuración y despliegue
+- **CHANGELOG.md**: Historial detallado de cambios siguiendo Keep a Changelog
+- **Script de datos de prueba**: `create_test_data.py` para popular la base de datos con datos realistas (5 médicos, 7 pacientes, 8 turnos)
+- **Entorno configurado**: .venv con todas las dependencias instaladas y testeadas
+
+#### Correcciones Críticas
+- **Modelos exportados correctamente**: Corregido `gestor/models/__init__.py` para permitir imports directos
+- **API REST funcional**: Corregidos imports faltantes en `gestor/api/views.py` (Response, date)
+- **Endpoint upcoming arreglado**: `/api/turnos/upcoming/` ahora funciona correctamente
+- **Código limpio**: Eliminadas duplicaciones y reorganizados imports
+
+#### Testing y Validación
+- Todos los endpoints de la API probados y funcionando
+- Autenticación JWT validada
+- Datos de prueba creados exitosamente
+- Sistema de permisos verificado
+
+**Ver más**: Consulta [CHANGELOG.md](CHANGELOG.md) para detalles completos de todos los cambios.
 
 ## ✨ Características
 
